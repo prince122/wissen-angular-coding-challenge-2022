@@ -10,6 +10,7 @@ import { Component, OnInit } from "@angular/core";
 })
 export class WelcomeComponent implements OnInit {
   user; // type this variable using user.type.ts file
+  LoadingData = 'Load...';
   constructor() {}
 
   ngOnInit() {}
