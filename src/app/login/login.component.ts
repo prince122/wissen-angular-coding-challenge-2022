@@ -64,12 +64,11 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     //
-    debugger;
+
     this.authenticationService
       .login(this.email.value, this.password.value)
       .subscribe(
         (res) => {
-          debugger;
           console.log('Auth resp', res);
           this.router.navigate(['welcome']);
         },

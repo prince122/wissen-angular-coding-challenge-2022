@@ -8,16 +8,13 @@ const API_URL = 'https://reqres.in/api/login';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-  isUserLoggedin: boolean;
   authtoken: string;
-  userId: number;
+
   constructor(private http: HttpClient) {}
 
   setAuthResponse(data) {
-    debugger;
     this.authtoken = data.token;
-    this.userId = data.id;
-    this.isUserLoggedin = true;
+
     if (typeof Storage !== 'undefined') {
       sessionStorage.setItem('authData', JSON.stringify(data));
     }
@@ -25,21 +22,10 @@ export class AuthenticationService {
 
   clearAuthData() {
     this.authtoken = '';
-    this.userId = null;
-    this.isUserLoggedin = false;
+
     if (typeof Storage !== 'undefined') {
       sessionStorage.removeItem('authInfo');
     }
-  }
-
-  retrieveAuthResponse(): any | null {
-    let authInfo = null;
-    if (typeof Storage !== 'undefined') {
-      if (sessionStorage.getItem('authInfo')) {
-        authInfo = JSON.parse(sessionStorage.getItem('authInfo'));
-      }
-    }
-    return authInfo;
   }
 
   // modify the return type to properly use the full response
@@ -52,7 +38,6 @@ export class AuthenticationService {
     };
     return this.http.post(API_URL, { username, password }, httpOptions).pipe(
       map((res) => {
-        debugger;
         this.setAuthResponse(res);
         return res;
       }),
