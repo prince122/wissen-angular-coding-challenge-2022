@@ -20,8 +20,9 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   submitted = false;
   passwordtype;
+  show = true;
   eyeIcon = 'assets/eye.svg';
-  SlashEyeIcon ='assets/eye-slash.svg'; 
+  SlashEyeIcon = 'assets/eye-slash.svg';
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,

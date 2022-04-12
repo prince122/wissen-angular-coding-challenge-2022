@@ -34,16 +34,17 @@
             <input
               class="form-control"
               id="password"
-              type="password"
+              [type]="show?'password':'text'"
               formControlName="password"
             />
             <span class="position-absolute bottom-0 end-0 translate-middle">
               <img
-                [src]="eyeIcon"
+                [src]="show ? SlashEyeIcon:eyeIcon"
                 class="float-end"
                 width="20"
                 height="20"
                 alt=""
+                (click)='show = !show'
             /></span>
           </div>
 
