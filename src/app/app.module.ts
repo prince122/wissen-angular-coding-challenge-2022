@@ -8,11 +8,22 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app.routing.module';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ShowHidePasswordModule } from 'ngx-show-hide-password';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule,
-  HttpClientModule ],
-  declarations: [ AppComponent, HelloComponent, LoginComponent, WelcomeComponent ],
-  bootstrap:    [ AppComponent ]
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
+  declarations: [
+    AppComponent,
+    HelloComponent,
+    LoginComponent,
+    WelcomeComponent,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
