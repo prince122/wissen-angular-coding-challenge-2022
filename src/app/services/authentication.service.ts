@@ -23,6 +23,15 @@ export class AuthenticationService {
     }
   }
 
+  clearAuthData() {
+    this.authtoken = '';
+    this.userId = null;
+    this.isUserLoggedin = false;
+    if (typeof Storage !== 'undefined') {
+      sessionStorage.removeItem('authInfo');
+    }
+  }
+
   retrieveAuthResponse(): any | null {
     let authInfo = null;
     if (typeof Storage !== 'undefined') {
